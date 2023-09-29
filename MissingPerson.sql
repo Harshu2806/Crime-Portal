@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[MissingPerson]
+(
+	[CompNo] NUMERIC NOT NULL PRIMARY KEY, 
+    [Pre] VARCHAR(50) NULL, 
+    [First] VARCHAR(50) NULL, 
+    [Middle] VARCHAR(50) NULL, 
+    [Last] VARCHAR(50) NULL, 
+    [Mobile] NUMERIC(10) NULL, 
+    [Email] VARCHAR(50) NULL, 
+    [Prefix] VARCHAR(50) NULL, 
+    [Fname] VARCHAR(50) NULL, 
+    [Mname] VARCHAR(50) NULL, 
+    [Lname] VARCHAR(50) NULL, 
+    [Gender] VARCHAR(50) NULL, 
+    [Body] VARCHAR(50) NULL, 
+    [Age] INT NULL, 
+    [Height] VARCHAR(50) NULL, 
+    [Skin] VARCHAR(50) NULL, 
+    [Cloth] VARCHAR(50) NULL, 
+    [Photo] NVARCHAR(MAX) NULL, 
+    [Place] VARCHAR(50) NULL, 
+    [Date] DATE NULL, 
+    [PoliceStation] VARCHAR(50) NULL, 
+    [OtherDetails] VARCHAR(50) NULL, 
+    [Status] VARCHAR(50) NULL
+)

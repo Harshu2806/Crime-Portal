@@ -1,0 +1,249 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage"  %>
+
+<%@ Register Assembly="MSCaptcha" Namespace="MSCaptcha" TagPrefix="cap" %>   <%--For Captcha--%>
+
+<%--<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+--%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%--<head runat="server">--%>
+ <head>
+        <meta charset="utf-8">
+        <title>Crime Portal</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Law Firm Website Template" name="keywords">
+        <meta content="Law Firm Website Template" name="description">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="Crime.png" />
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600;1,700;1,800&family=Roboto:wght@400;500&display=swap" rel="stylesheet"> 
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <title></title>
+    <script>
+        function disableClick() {
+            document.onclick = function (event) {
+                if (event.button == 2) {
+                    alert('Right Click Message');
+                    return false;
+                }
+            }
+        }
+    </script>
+    <asp:ContentPlaceHolder id="head" runat="Server">
+    </asp:ContentPlaceHolder>
+<%--</head>--%>
+<body onLoad="disableClick()" oncontextmenu="return false">
+    <form id="form1" runat="server">
+    <div>
+    <div class="wrapper">
+            <!-- Top Bar Start -->
+            <div class="top-bar">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="logo">
+                                <a href="Default.aspx" 
+                                    style="color:#DBD00B; font-size: xx-large; font-weight: bold; bottom: auto;">
+                                    <%--<h1>Crime</h1>--%>
+                                     <img src="Crime.png" alt="Logo"> Crime Portal
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="top-bar-right">
+                               <%-- <div class="text">
+                                    <h2>8:00 - 9:00</h2>
+                                    <p>Opening Hour Mon - Fri</p>
+                                </div>--%><img src="https://www.sanglipolice.gov.in/assets/img/emergency.gif" style="width: 70px;"/>&nbsp;
+                                <%--<img src="https://media.giphy.com/media/xTiTnynF4vavJmXmRG/giphy.gif" style="width: 70px;"/>--%>
+                                <div class="text">
+                                    <h2>100 / 1091</h2>
+                                    <marquee><p style="color: #FF0000; text-decoration: blink; font-size: large;">Emergency Dail</p></marquee>
+                                </div>
+                                <div class="social">
+                                    <a href="https://twitter.com/spsangli"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.facebook.com/sanglipolice"><i class="fab fa-facebook-f"></i></a>
+                                    
+                                    <a href="https://instagram.com/sanglipoliceofficial"><i class="fab fa-instagram"></i></a>
+                                   <asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="~/Login.aspx" Font-Size="Medium">Login</asp:LinkButton>
+                                    <%--<a href="Login.aspx"><i class="fab fa fa-user"></i></a>--%>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Top Bar End -->
+        <asp:ScriptManager ID="ScriptManager1" runat="Server">
+        </asp:ScriptManager>
+            <!-- Nav Bar Start -->
+            <div class="nav-bar">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                        <a href="#" class="navbar-brand">MENU</a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav mr-auto">
+                                <a href="Default.aspx" class="nav-item nav-link active"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                                <a href="about.aspx" class="nav-item nav-link">About Us</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Report Us</a>
+                                    <div class="dropdown-menu">
+                                        <a href="OnlineComplaint.aspx" class="dropdown-item">Online Complaint</a>
+                                        <a href="LostOrFound.aspx" class="dropdown-item">Lost / Found</a>
+                                        <a href="Feedback.aspx" class="dropdown-item">Inform Us / Feedback</a>
+                                    </div>
+                                </div>
+                                <%--<a href="service.html" class="nav-item nav-link">Report Us</a>--%>
+                                <a href="Police Station.aspx" class="nav-item nav-link">Police Stations</a>
+                                <%--<a href="portfolio.html" class="nav-item nav-link">Case Studies</a>--%>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Special Units</a>
+                                    <div class="dropdown-menu">
+                                        <a href="District.aspx" class="dropdown-item">District Special Branch</a>
+                                        <a href="Local.aspx" class="dropdown-item">Local Crime Branch</a>
+                                        <a href="Traffic.aspx" class="dropdown-item">Traffic Branch</a>
+                                        <a href="AntiCorruption.aspx" class="dropdown-item">Anti Corruption Bureau</a>
+                                        <a href="Cyber.aspx" class="dropdown-item">Cyber Crime Cell</a>
+                                        <a href="Other.aspx" class="dropdown-item">Other Branches</a>
+                                    </div>
+                                </div>
+                                <a href="contact.aspx" class="nav-item nav-link">Contact Us</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">My Account</a>
+                                    <div class="dropdown-menu">
+                                        <a href="MyComplaints.aspx" class="dropdown-item">My Complaints</a>
+                                        <a href="" class="dropdown-item">View Profile</a>
+                                        <%--<a href="ChangePass.aspx" class="dropdown-item">Change Password</a>--%>
+                                        <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/ChangePassword.aspx" ForeColor="Blue">Change Password</asp:LinkButton>
+                                        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="btnlogout_click" ForeColor="Blue">Logout</asp:LinkButton>
+                                        <%--<a href="Default.aspx" class="dropdown-item">Logout</a>--%>
+                                        <%--<a href="Cyber.aspx" class="dropdown-item">Cyber Crime Cell</a>
+                                        <a href="Other.aspx" class="dropdown-item">Other Branches</a>--%>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ml-auto">
+                           <%-- <img src="https://media.giphy.com/media/l2Sq9AKZKhC1br9tu/giphy.gif" style="width: 70px;"/>&nbsp;--%>
+                                <a class="btn" href="SpotComplaint.aspx">Live Crime</a>
+                               <%--<a href="contact.aspx"><asp:Button ID="Button1" runat="server" class="btn" Text="Spot Crime"></asp:Button></a>--%>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- Nav Bar End -->
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="Server">
+        <head>
+        </head>
+        </asp:ContentPlaceHolder>
+         <!-- Footer Start -->
+            <div class="footer">
+                <div class="container">
+                   <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="footer-about">
+                                <h2>About Us</h2>
+                                <p>
+                                    We the Sangli District Police are committed to solve the problems faced by the citizens. We are always their to help you out in any situation.
+
+
+              </div>
+                        </div>
+                        <div class="col-md-6 col-lg-8">
+                            <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="footer-link">
+                                <h2>Services Areas</h2>
+                                <a href="">Civil Law</a>
+                                <a href="">Family Law</a>
+                                <a href="">Business Law</a>
+                                <a href="">Education Law</a>
+                                <%--<a href="">Immigration Law</a>--%>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="footer-link">
+                                <h2>Useful Pages</h2>
+                                <a href="About.aspx">About Us</a>
+                                <a href="Contact.aspx">Contact Us</a>
+                               <%-- <a href="">Attorneys</a>--%>
+                                <a href="https://www.unodc.org">Case Studies</a>
+                                <a href="FAQ.aspx">FAQs</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="footer-contact">
+                                <h2>Get In Touch</h2>
+                                <p><i class="fa fa-map-marker-alt"></i>100 Street, Sangli, INDIA</p>
+                                <p><i class="fa fa-phone-alt"></i>+0233 222 5221</p>
+                                <p><i class="fa fa-envelope"></i>info@example.com</p>
+                                <div class="footer-social">
+                                    <a href="https://twitter.com/spsangli"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.facebook.com/sanglipolice"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://youtube.com/channel/UCGMKq7hO-rVWdRnZwuletQQ"><i class="fab fa-youtube"></i></a>
+                                    <a href="https://instagram.com/sanglipoliceofficial"><i class="fab fa-instagram"></i></a>
+                                    <%--<a href=""><i class="fab fa-linkedin-in"></i></a>--%>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="container footer-menu">
+                    <div class="f-menu">
+                        <a href="Overview.aspx">Overview</a>
+                        <a href="Private.aspx">Privacy policy</a>
+                        <a href="SiteMap.aspx">Site Map</a>
+                        <a href="Guide.aspx">User Guide</a>
+                        <a href="FAQ.aspx">FQAs</a>
+                    </div>
+                </div>
+                <div class="container copyright">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>&copy; <a href="https://yashjain11158.wixsite.com/blackmambait">Black Mamba </a>, All Right Reserved. </p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Designed By <a href="https://yashjain11158.wixsite.com/blackmambait">Black Mamba</a></p>
+                            <p><a href="https://yashjain11158.wixsite.com/blackmambait">&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/logo1.png" 
+                                    Height="78px" Width="109px" /></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer End -->
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    </div>
+       </div>
+    </form>
+</body>
+ <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+</html>
